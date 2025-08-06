@@ -27,7 +27,7 @@
       .text-primary-700 { color: #1a354a; }
       .app-inp-txt { border-color: #e0e0e0; }
       .app-inp-txt:focus { border-color: #244A66; box-shadow: 0 0 0 3px rgba(36,74,102,0.1); }
-      .app-login-btn-box { border: 1px solid #e0e0e0; transition: all 0.3s ease; }
+      .app-login-btn-box { transition: all 0.3s ease; }
       .app-login-btn-box:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-2px); }
     </style>
     {{ if eq .Data.ui_options.custom_css_required "yes" }}
