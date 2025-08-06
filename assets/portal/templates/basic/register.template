@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-blue-100">
+<html lang="en" class="h-full bg-white">
   <head>
     <title>{{ .MetaTitle }} - {{ .PageTitle }}</title>
     <!-- Required meta tags -->
@@ -10,9 +10,39 @@
     <link rel="shortcut icon" href="{{ pathjoin .ActionEndpoint "/assets/images/favicon.png" }}" type="image/png" />
     <link rel="icon" href="{{ pathjoin .ActionEndpoint "/assets/images/favicon.png" }}" type="image/png" />
     <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/line-awesome/line-awesome.css" }}" />
-    <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/google-webfonts/roboto.css" }}" />
-    <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/google-webfonts/montserrat.css" }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/css/register.css" }}" />
+    <style>
+      body { font-family: 'IBM Plex Sans', sans-serif; }
+      .app-page { background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%); min-height: 100vh; }
+      .app-content { background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); padding: 2rem; }
+      .logo-col-txt { color: #000000; font-weight: 600; }
+      .app-btn-pri { background: #244A66; border: none; }
+      .app-btn-pri:hover { background: #1a354a; }
+      .app-btn-sec { background: #ffffff; border: 2px solid #244A66; color: #244A66; }
+      .app-btn-sec:hover { background: #f5f5f5; }
+      .app-gen-inp-lbl { color: #4B4B4B; font-weight: 500; }
+      .app-gen-inp-txt { 
+        border: 1px solid #e0e0e0; 
+        font-family: 'IBM Plex Sans', sans-serif;
+      }
+      .app-gen-inp-txt:focus { 
+        border-color: #244A66; 
+        box-shadow: 0 0 0 3px rgba(36,74,102,0.1); 
+      }
+      .app-inp-code-txt { font-family: 'IBM Plex Mono', monospace; }
+      .bg-red-50 { background-color: #fef2f2; }
+      .text-red-600 { color: #dc2626; }
+      .text-red-800 { color: #991b1b; }
+      .text-gray-500 { color: #6b7280; }
+      .text-gray-700 { color: #374151; }
+      .focus\:ring-primary-500:focus { --tw-ring-color: #244A66; }
+      .text-primary-600 { color: #244A66; }
+      a { color: #244A66; }
+      a:hover { color: #1a354a; text-decoration: underline; }
+    </style>
     {{ if eq .Data.ui_options.custom_css_required "yes" }}
       <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/css/custom.css" }}" />
     {{ end }}
@@ -164,7 +194,7 @@
                 <label for="registration_code" class="app-inp-lbl">Passcode</label>
                 <div class="app-inp-box">
                   <input id="registration_code" name="registration_code" type="text"
-                         class="font-['Montserrat'] app-inp-code-txt validate"
+                         class="font-['IBM_Plex_Mono'] app-inp-code-txt validate"
                          pattern="[A-Za-z0-9]{6,8}" maxlength="8"
                          title="The registration code should be 6-8 characters long."
                          autocorrect="off" autocapitalize="off" spellcheck="false" autocomplete="off"

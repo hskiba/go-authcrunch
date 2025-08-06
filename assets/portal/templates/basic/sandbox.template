@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-full bg-blue-100">
+<html lang="en" class="h-full bg-white">
   <head>
     <title>{{ .MetaTitle }} - {{ .PageTitle }}</title>
     <!-- Required meta tags -->
@@ -9,10 +9,39 @@
     <meta name="author" content="{{ .MetaAuthor }}" />
     <link rel="shortcut icon" href="{{ pathjoin .ActionEndpoint "/assets/images/favicon.png" }}" type="image/png">
     <link rel="icon" href="{{ pathjoin .ActionEndpoint "/assets/images/favicon.png" }}" type="image/png">
-    <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/google-webfonts/roboto.css" }}" />
-    <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/google-webfonts/montserrat.css" }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/line-awesome/line-awesome.css" }}" />
     <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/css/sandbox.css" }}" />
+    <style>
+      body { font-family: 'IBM Plex Sans', sans-serif; }
+      .app-page { background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%); min-height: 100vh; }
+      .app-content { background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); padding: 2rem; }
+      .logo-txt { color: #000000; font-weight: 600; }
+      .app-btn-pri { background: #244A66; border: none; }
+      .app-btn-pri:hover { background: #1a354a; }
+      .app-btn-sec { background: #ffffff; border: 2px solid #244A66; color: #244A66; }
+      .app-btn-sec:hover { background: #f5f5f5; }
+      .app-inp-lbl { color: #4B4B4B; font-weight: 500; }
+      .app-inp-txt, .app-inp-sel { 
+        border: 1px solid #e0e0e0;
+        font-family: 'IBM Plex Sans', sans-serif;
+      }
+      .app-inp-txt:focus, .app-inp-sel:focus { 
+        border-color: #244A66; 
+        box-shadow: 0 0 0 3px rgba(36,74,102,0.1); 
+      }
+      .app-inp-code-txt { font-family: 'IBM Plex Mono', monospace; }
+      .app-txt-section { color: #4B4B4B; }
+      .text-primary-500 { color: #244A66; }
+      .text-secondary-500 { color: #93C30B; }
+      .hover\:text-primary-500:hover { color: #1a354a; }
+      .divide-primary-200 > :not([hidden]) ~ :not([hidden]) { border-color: #e0e0e0; }
+      .app-lst-lnk { color: #244A66; }
+      .app-lst-lnk:hover { color: #1a354a; text-decoration: underline; }
+      ul { margin-top: 1rem; }
+    </style>
 
     {{ if eq .Data.ui_options.custom_css_required "yes" }}
     <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/css/custom.css" }}" />
@@ -189,7 +218,7 @@
                 <label for="passcode" class="app-inp-lbl">Passcode</label>
                 <div class="app-inp-box">
                   <input id="passcode" name="passcode" type="text"
-                         class="font-['Montserrat'] app-inp-code-txt validate"
+                         class="font-['IBM_Plex_Mono'] app-inp-code-txt validate"
                          pattern="[0-9]{4,8}" maxlength="8"
                          title="Authentication code should contain 4-8 characters and consists of 0-9 characters."
                          autocorrect="off" autocapitalize="off" spellcheck="false" autocomplete="off"
@@ -383,7 +412,7 @@
                   <label for="passcode" class="app-inp-lbl">Passcode</label>
                   <div class="app-inp-box">
                     <input id="passcode" name="passcode" type="text"
-                           class="font-['Montserrat'] app-inp-code-txt validate"
+                           class="font-['IBM_Plex_Mono'] app-inp-code-txt validate"
                            pattern="[0-9]{4,8}" maxlength="8"
                            title="Authentication code should contain 4-8 characters and consists of 0-9 characters."
                            autocorrect="off" autocapitalize="off" spellcheck="false" autocomplete="off"

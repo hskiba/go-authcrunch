@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-blue-100">
+<html lang="en" class="h-full bg-white">
   <head>
     <title>{{ .MetaTitle }} - {{ .PageTitle }}</title>
     <!-- Required meta tags -->
@@ -9,16 +9,33 @@
     <meta name="author" content="{{ .MetaAuthor }}" />
     <link rel="shortcut icon" href="{{ pathjoin .ActionEndpoint "/assets/images/favicon.png" }}" type="image/png" />
     <link rel="icon" href="{{ pathjoin .ActionEndpoint "/assets/images/favicon.png" }}" type="image/png" />
-    <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/google-webfonts/roboto.css" }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/line-awesome/line-awesome.css" }}" />
     <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/css/login.css" }}" />
+    <style>
+      body { font-family: 'IBM Plex Sans', sans-serif; }
+      .app-page { background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%); }
+      .app-content { background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+      .logo-txt { color: #000000; font-weight: 600; }
+      .app-btn-pri { background: #244A66; border: none; }
+      .app-btn-pri:hover { background: #1a354a; }
+      .app-btn-sec { background: #ffffff; border: 2px solid #244A66; color: #244A66; }
+      .app-btn-sec:hover { background: #f5f5f5; }
+      .text-primary-600 { color: #244A66; }
+      .text-primary-700 { color: #1a354a; }
+      .app-inp-txt { border-color: #e0e0e0; }
+      .app-inp-txt:focus { border-color: #244A66; box-shadow: 0 0 0 3px rgba(36,74,102,0.1); }
+      .app-login-btn-box { border: 1px solid #e0e0e0; transition: all 0.3s ease; }
+      .app-login-btn-box:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    </style>
     {{ if eq .Data.ui_options.custom_css_required "yes" }}
       <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/css/custom.css" }}" />
     {{ end }}
   </head>
 
   {{ $authenticatorCount := len .Data.login_options.authenticators }}
-  {{ $qrCodeLink := pathjoin .ActionEndpoint "/qrcode/login.png" }}
 
 
   <body class="h-full">
@@ -37,7 +54,7 @@
               <div>
                 <form class="space-y-6" action="{{ pathjoin .ActionEndpoint "/login" }}" method="POST">
                   <div>
-                    <label for="username" class="block text-center pb-2 text-lg font-sans font-medium text-primary-700">Please provide username or email address</label>
+                    <label for="username" class="block text-center pb-2 text-lg font-sans font-medium text-gray-800">Please provide username or email address</label>
                     <div class="app-inp-box">
                       <div class="app-inp-prf-img"><i class="las la-user"></i></div>
                       <input class="app-inp-txt" id="username" name="username" type="text" autocorrect="off" autocapitalize="off" autocomplete="username" spellcheck="false" autofocus required />
@@ -140,14 +157,6 @@
               {{ end }}
             </div>
           {{ end }}
-        </div>
-        <div id="bookmarks" class="px-4 hidden sm:block">
-          <div onclick="showQRCode('{{ $qrCodeLink }}');return false;" class="bg-[#24292f] text-[#f6f8fa] py-1 px-1 shadow-xl rounded-b-lg pb-2 text-center" style="max-width: 3em;">
-            <i class="las la-qrcode text-3xl"></i>
-          </div>
-        </div>
-        <div id="qr" class="px-4 flex justify-center hidden">
-          <div id="qrcode" onclick="hideQRCode();return false;" class="bg-white border border-t-2 py-1 px-1 shadow-xl rounded-b-lg pb-2 max-w-xs inline-flex"></div>
         </div>
       </div>
     </div>

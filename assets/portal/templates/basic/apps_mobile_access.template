@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-blue-100">
+<html lang="en" class="h-full bg-white">
   <head>
     <title>{{ .MetaTitle }} - {{ .PageTitle }}</title>
     <!-- Required meta tags -->
@@ -9,9 +9,20 @@
     <meta name="author" content="{{ .MetaAuthor }}" />
     <link rel="shortcut icon" href="{{ pathjoin .ActionEndpoint "/assets/images/favicon.png" }}" type="image/png" />
     <link rel="icon" href="{{ pathjoin .ActionEndpoint "/assets/images/favicon.png" }}" type="image/png" />
-    <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/google-webfonts/roboto.css" }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/line-awesome/line-awesome.css" }}" />
     <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/css/apps_mobile_access.css" }}" />
+    <style>
+      body { font-family: 'IBM Plex Sans', sans-serif; }
+      .app-page { background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%); min-height: 100vh; }
+      .app-content { background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); padding: 2rem; }
+      .logo-col-txt { color: #000000; font-weight: 600; }
+      .app-inp-lbl { color: #4B4B4B; font-weight: 500; }
+      .text-primary-600 { color: #244A66; }
+      .text-primary-600:hover { color: #1a354a; text-decoration: underline; }
+    </style>
     {{ if eq .Data.ui_options.custom_css_required "yes" }}
       <link rel="stylesheet" href="{{ pathjoin .ActionEndpoint "/assets/css/custom.css" }}" />
     {{ end }}
@@ -32,7 +43,7 @@
             </div>
           </div>
           <div>
-            <p class="app-inp-lbl">Scan the below QR code and follow the link to perform one-time passwordless login.</p>
+            <p class="app-inp-lbl">Mobile access functionality is available through the portal.</p>
           </div>
 
           <div class="flex flex-wrap pt-6 justify-center gap-4">
